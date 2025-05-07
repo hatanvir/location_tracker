@@ -32,7 +32,7 @@ class UserAController extends GetxController {
       final lat = position.latitude;
       final lon = position.longitude;
       currentLocation.value = 'lat: $lat, lon: $lon';
-      _connectionRepo.sendLotLon(lat, lon);
+      _connectionRepo.sendLatLon(lat, lon);
     });
   }
 }

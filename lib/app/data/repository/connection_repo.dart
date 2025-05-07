@@ -21,7 +21,7 @@ class ConnectionRepo {
     }
   }
 
-  void sendLotLon(double lat, double lon) async {
+  void sendLatLon(double lat, double lon) async {
     await start();
     getHubConnection().invoke(SignalRKeys.sendLatLon, args: [lat, lon]);
   }
