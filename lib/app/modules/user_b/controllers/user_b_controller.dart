@@ -15,7 +15,7 @@ class UserBController extends GetxController {
   @override
   void onClose() {
     super.onClose();
-    _connectionRepo.dispose();
+    _connectionRepo.stop();
   }
 
   void getLatLon() {

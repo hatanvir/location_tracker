@@ -6,6 +6,7 @@ import 'package:signalr_netcore/hub_connection_builder.dart';
 
 import '../../network/apis.dart';
 
+/// connection repo ro handle all Signal R operations
 class ConnectionRepo {
   HubConnection? _hubConnection;
 
@@ -21,7 +22,6 @@ class ConnectionRepo {
   }
 
   void sendLotLon(double lat, double lon) async {
-    print('send $lat');
     await start();
     getHubConnection().invoke(SignalRKeys.sendLatLon, args: [lat, lon]);
   }
@@ -33,11 +33,8 @@ class ConnectionRepo {
     });
   }
 
-  void dispose() async {
-    print(_hubConnection?.state);
-    //if (_hubConnection?.state == HubConnectionState.Connected) {
+  void stop() async {
       await _hubConnection?.stop();
       _hubConnection = null;
-    //}
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:location_tracker/app/core/widgets/common_appbar.dart';
 import 'package:location_tracker/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
@@ -11,9 +12,8 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-        centerTitle: true,
+      appBar: customAppbar(
+        title: 'Home',
       ),
       body: Center(
         child: Column(
@@ -36,6 +36,7 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
+  //common button
   Widget _customButton({required String text, required Function() onPress}) =>
       ElevatedButton(
           onPressed: onPress, child: Text(text));
